@@ -21,7 +21,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Home Routes
      */
-    Route::get('/', 'Admin\AdminController@index')->name('home.index');
+    Route::get('/admin', 'Admin\AdminController@index')->name('admin.index');
+    Route::get('/transaction', 'Admin\TransactionController@index')->name('transaction.index');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
@@ -43,5 +44,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Logout Routes
          */
         Route::get('/logout', 'Auth\LogoutController@perform')->name('logout.perform');
+
     });
 });
